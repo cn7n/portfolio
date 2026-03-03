@@ -226,6 +226,63 @@ a {
   gap: 12px;
 }
 
+.skills-intro {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.skills-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.skill-group {
+  --group-color: var(--accent-2);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 4px solid var(--group-color);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-group:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+}
+
+.skill-head {
+  margin-bottom: 10px;
+}
+
+.skill-label {
+  font-weight: 700;
+  color: var(--group-color);
+}
+
+.tone-languages {
+  --group-color: #2b6cb0;
+}
+
+.tone-web {
+  --group-color: #b45309;
+}
+
+.tone-tools {
+  --group-color: #0f766e;
+}
+
+.tone-concepts {
+  --group-color: #9f1239;
+}
+
+#skills .chip {
+  background: rgba(27, 27, 27, 0.08);
+  color: #2b2b2b;
+}
+
 .chip {
   padding: 8px 14px;
   border-radius: 999px;
@@ -282,6 +339,28 @@ a {
 .contact-list {
   display: grid;
   gap: 6px;
+  list-style: none;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-2);
+  flex-shrink: 0;
+}
+
+.contact-list a {
+  color: var(--accent-2);
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
 }
 
 .contact-form {
@@ -320,6 +399,10 @@ input, textarea {
     grid-template-columns: 1fr;
   }
 
+  .skills-groups {
+    grid-template-columns: 1fr;
+  }
+
   .timeline-item {
     grid-template-columns: 1fr;
   }
@@ -345,4 +428,27 @@ input, textarea {
   .nav-toggle {
     display: flex;
   }
+}
+.demo-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #222;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+  margin-top: 15px;
+  align-self: flex-start;
+}
+
+.demo-btn:hover {
+  background: #222;
+  color: white;
+}
+
+.project-action {
+  margin-top: 8px;
 }

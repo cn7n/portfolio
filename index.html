@@ -3,312 +3,249 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Launching Soon!</title>
+  <title>Waleed Almehmadi | CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --ink: #f4f6ff;
-      --paper: #0a0f1f;
-      --accent: #e6b980;
-      --accent-2: #8bb2ff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-    }
-
-    .sky {
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(86, 132, 255, 0.35), transparent 45%),
-        radial-gradient(circle at 80% 10%, rgba(40, 60, 120, 0.45), transparent 55%),
-        radial-gradient(circle at 60% 80%, rgba(10, 15, 31, 0.95), transparent 60%),
-        linear-gradient(180deg, #0b1128 0%, #0a0f1f 55%, #070a12 100%);
-      animation: drift 24s ease-in-out infinite;
-      z-index: -3;
-    }
-
-    @keyframes drift {
-      0% {
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-      50% {
-        transform: translate3d(-2%, -1%, 0) scale(1.03);
-      }
-      100% {
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-    }
-
-    canvas#stars {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-    }
-
-    .mountains {
-      position: fixed;
-      inset: auto 0 0 0;
-      height: 45vh;
-      background:
-        linear-gradient(180deg, rgba(7, 10, 18, 0) 0%, rgba(7, 10, 18, 0.95) 70%),
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'><path d='M0,300 L140,220 L260,280 L380,160 L520,260 L680,140 L820,220 L960,120 L1100,200 L1200,140 L1200,400 L0,400 Z' fill='%23080c16'/><path d='M0,330 L180,260 L320,320 L460,210 L620,300 L760,200 L920,280 L1080,190 L1200,250 L1200,400 L0,400 Z' fill='%23060a12'/></svg>");
-      background-size: cover;
-      background-position: center bottom;
-      opacity: 0.95;
-      z-index: -1;
-    }
-
-    .mist {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.06), transparent 45%);
-      opacity: 0.6;
-      animation: mist 20s ease-in-out infinite;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    @keyframes mist {
-      0% {
-        transform: translate3d(0, 0, 0);
-      }
-      50% {
-        transform: translate3d(2%, -1%, 0);
-      }
-      100% {
-        transform: translate3d(0, 0, 0);
-      }
-    }
-
-    .card {
-      background: rgba(9, 14, 30, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 24px;
-      padding: 48px 56px;
-      text-align: center;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-      max-width: 560px;
-      width: min(90%, 560px);
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      color: var(--accent-2);
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(36px, 6vw, 54px);
-      margin-bottom: 14px;
-    }
-
-    p {
-      font-size: 16px;
-      color: rgba(244, 246, 255, 0.75);
-      margin-bottom: 24px;
-      line-height: 1.6;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(230, 185, 128, 0.16);
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(230, 185, 128, 0.2);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(0.9);
-        opacity: 0.7;
-      }
-      50% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(0.9);
-        opacity: 0.7;
-      }
-    }
-
-    .note {
-      margin-top: 18px;
-      font-size: 13px;
-      color: rgba(244, 246, 255, 0.6);
-    }
-
-    .credit {
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(244, 246, 255, 0.5);
-      letter-spacing: 0.3px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="sky" aria-hidden="true"></div>
-  <canvas id="stars" aria-hidden="true"></canvas>
-  <div class="mist" aria-hidden="true"></div>
-  <div class="mountains" aria-hidden="true"></div>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
 
-  <main class="card">
-    <div class="eyebrow">Portfolio Update</div>
-    <h1>Launching Soon</h1>
-    <p>
-      My portfolio is being polished and will be live shortly. Thanks for stopping by.
-    </p>
-    <div class="status">
-      <span class="dot"></span>
-      New site in progress
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="logo" href="#top">Waleed A.</a>
+      <nav class="nav" id="nav">
+        <a href="#objective">Objective</a>
+        <a href="#skills">Skills</a>
+        <!-- <a href="#experience">Experience</a> -->
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    <div class="note">Check back soon for the full experience.</div>
-    <div class="credit">Developed by Waleed Al-Mehmadi</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Software Engineering</p>
+          <h1>Waleed Al-Mehmadi</h1>
+          <p class="lead">
+            Junior Software Engineering student at King Fahd University of Petroleum & Minerals, specializing in Cybersecurity and Blockchain, with a strong interest in secure and scalable software systems.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Contact</a>
+          </div>
+          
+        </div>
+        <div class="hero-card">
+          <div class="card">
+            <h3>Profile Snapshot</h3>
+            <ul>
+              <li>B.Sc. Software Engineering Student</li>
+              <li>University: KFUPM</li>
+              <li>Expected Graduation: June 2027</li>
+            </ul>
+          </div>
+          <div class="card accent">
+            <h3>Career Goal</h3>
+            <p>Apply Java, HTML, OOP, and Agile skills in real projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="objective">
+      <div class="container split">
+        <div>
+          <h2>Objective</h2>
+          <p>
+            Seeking a summer training opportunity to apply programming, object-oriented design, and foundational security concepts while contributing to real-world software development projects.
+          </p>
+          
+        </div>
+        <div class="card">
+          <h3>Certificates</h3>
+          <ul>
+            <li>Agile Methodology Certification - Edraak</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <!-- <p class="skills-intro">Core technical skills organized by focus area.</p> -->
+        <div class="skills-groups">
+          <article class="skill-group tone-languages">
+            <div class="skill-head">
+              <p class="skill-label">Programming Languages</p>
+            </div>
+            <div class="chip-grid">
+              <span class="chip">Java</span>
+              <span class="chip">Python</span>
+              <span class="chip">JavaScript</span>
+            </div>
+          </article>
+          <article class="skill-group tone-web">
+            <div class="skill-head">
+              <p class="skill-label">Web</p>
+            </div>
+            <div class="chip-grid">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+            </div>
+          </article>
+          <article class="skill-group tone-tools">
+            <div class="skill-head">
+              <p class="skill-label">Tools</p>
+            </div>
+            <div class="chip-grid">
+              <span class="chip">Git</span>
+              <span class="chip">Figma</span>
+            </div>
+          </article>
+          <article class="skill-group tone-concepts">
+            <div class="skill-head">
+              <p class="skill-label">Concepts</p>
+            </div>
+            <div class="chip-grid">
+              <span class="chip">OOP</span>
+              <span class="chip">Agile Methodology</span>
+              <span class="chip">Networking Fundamentals</span>
+              <span class="chip">Basic Security Principles</span>
+              <span class="chip">Problem Solving</span>
+              <span class="chip">Teamwork</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="section" id="experience">
+      <div class="container">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">2024</div>
+            <div class="content">
+              <h3>Academic Project - University Event Booking System</h3>
+              <p><em>King Fahd University of Petroleum and Minerals</em></p>
+              <p>Developed a Java-based application to manage university event reservations.</p>
+              <p>Implemented event creation, booking, and seat management using OOP principles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="section" id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <article class="card project">
+            <h3>University Event Booking System (Java)</h3>
+            <p>Designed and implemented a Java application for managing university event reservations.</p>
+            <div class="tags">
+              <span>Java</span>
+              <span>OOP</span>
+            
+            </div>
+          </article>
+          <article class="card project">
+            <h3>Figma Project - Restaurant Ordering Application</h3>
+            <p>Designed a restaurant ordering prototype and interactive user flows in Figma.</p>
+            <div class="tags">
+              <span>Figma</span>
+              <span>UI/UX</span>
+            </div>
+            <div class="project-action">
+              <a href="https://www.figma.com/proto/PANv7mBSfnQLidIhsKZ9Uz/eative-food-delivery-app--Community-?node-id=1264-1437&t=MwBD2bwjFwSL0x3p-1" target="_blank" rel="noopener noreferrer" class="demo-btn">View Prototype</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <h2>Education</h2>
+        <div class="card">
+          <h3>Bachelor of Science in Software Engineering</h3>
+          <p><em>King Fahd University of Petroleum and Minerals</em></p>
+          <p>08/2022 - 06/2027</p>
+          <p>Dhahran, Eastern Province</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-grid">
+          <div>
+            <p>Reach out for internships, collaboration, or opportunities:</p>
+            <ul class="contact-list">
+              <li>
+                <span class="contact-item">
+                  <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.51l8 5.34 8-5.34V7H4Zm16 10V9.92l-7.45 4.98a1 1 0 0 1-1.1 0L4 9.92V17h16Z"/>
+                  </svg>
+                  <span>Email: <a href="mailto:waleedalmehmadi1@gmail.com">waleedalmehmadi1@gmail.com</a></span>
+                </span>
+              </li>
+              <li>
+                <span class="contact-item">
+                  <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.2 11.2 0 0 0 3.52.56 1 1 0 0 1 1 1V21a1 1 0 0 1-1 1A17.93 17.93 0 0 1 2 4a1 1 0 0 1 1-1h4.5a1 1 0 0 1 1 1 11.2 11.2 0 0 0 .56 3.52 1 1 0 0 1-.24 1.02l-2.2 2.25Z"/>
+                  </svg>
+                  <span>Phone: <a href="tel:+966538353292">+966 53 835 3292</a></span>
+                </span>
+              </li>
+              <li>
+                <span class="contact-item">
+                  <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/>
+                  </svg>
+                  <span>Location: Al-Khobar</span>
+                </span>
+              </li>
+              <li>
+                <span class="contact-item">
+                  <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12ZM5.5 9.75h2.88V19H5.5V9.75Zm4.69 0h2.76v1.26h.04a3.03 3.03 0 0 1 2.72-1.5c2.9 0 3.44 1.9 3.44 4.37V19h-2.88v-4.53c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39V19h-2.85V9.75Z"/>
+                  </svg>
+                  <a href="https://www.linkedin.com/in/waleed-al-mehmadi-9793302b5" target="_blank" rel="noopener noreferrer">LinkedIn: Waleed Al-Mehmadi</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Languages</h3>
+            <p>Arabic - Native</p>
+            <p>English - Proficient</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script>
-    const canvas = document.getElementById("stars");
-    const ctx = canvas.getContext("2d");
-    const stars = [];
-    const shootingStars = [];
-    const starCount = 140;
-    const minSpawnDelay = 900;
-    const maxSpawnDelay = 2600;
-    let nextSpawnAt = 0;
+  <footer class="footer">
+    <div class="container">
+      <span>&copy; 2026 Waleed Al-Mehmadi. All rights reserved.</span>
+    </div>
+  </footer>
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    const initStars = () => {
-      stars.length = 0;
-      for (let i = 0; i < starCount; i += 1) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 1.6 + 0.4,
-          alpha: Math.random() * 0.7 + 0.2,
-          drift: Math.random() * 0.3 + 0.05
-        });
-      }
-    };
-
-    const createShootingStar = () => {
-      const startX = Math.random() * canvas.width * 0.65 + canvas.width * 0.2;
-      const startY = Math.random() * canvas.height * 0.45;
-      const speed = Math.random() * 7 + 8;
-      const angle = (Math.PI / 180) * (Math.random() * 12 + 20);
-      shootingStars.push({
-        x: startX,
-        y: startY,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed,
-        life: 0,
-        maxLife: Math.random() * 18 + 42,
-        length: Math.random() * 70 + 90
-      });
-    };
-
-    const drawShootingStars = () => {
-      const now = performance.now();
-      if (now >= nextSpawnAt) {
-        createShootingStar();
-        nextSpawnAt = now + Math.random() * (maxSpawnDelay - minSpawnDelay) + minSpawnDelay;
-      }
-
-      for (let i = shootingStars.length - 1; i >= 0; i -= 1) {
-        const meteor = shootingStars[i];
-        meteor.x += meteor.vx;
-        meteor.y += meteor.vy;
-        meteor.life += 1;
-
-        const progress = meteor.life / meteor.maxLife;
-        const alpha = Math.max(0, 1 - progress);
-        const tailX = meteor.x - meteor.vx * (meteor.length / 25);
-        const tailY = meteor.y - meteor.vy * (meteor.length / 25);
-        const gradient = ctx.createLinearGradient(meteor.x, meteor.y, tailX, tailY);
-        gradient.addColorStop(0, `rgba(255, 245, 210, ${alpha})`);
-        gradient.addColorStop(1, "rgba(255, 245, 210, 0)");
-
-        ctx.globalAlpha = 1;
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(meteor.x, meteor.y);
-        ctx.lineTo(tailX, tailY);
-        ctx.stroke();
-
-        if (
-          meteor.life >= meteor.maxLife ||
-          meteor.x > canvas.width + 120 ||
-          meteor.y > canvas.height + 120
-        ) {
-          shootingStars.splice(i, 1);
-        }
-      }
-    };
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#ffffff";
-      stars.forEach((star) => {
-        ctx.globalAlpha = star.alpha;
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fill();
-        star.x += star.drift * 0.3;
-        star.y += star.drift * 0.1;
-        if (star.x > canvas.width + 10) star.x = -10;
-        if (star.y > canvas.height + 10) star.y = -10;
-      });
-      drawShootingStars();
-      ctx.globalAlpha = 1;
-      requestAnimationFrame(draw);
-    };
-
-    window.addEventListener("resize", () => {
-      resize();
-      initStars();
-      shootingStars.length = 0;
-    });
-
-    resize();
-    initStars();
-    nextSpawnAt = performance.now() + 600;
-    draw();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
